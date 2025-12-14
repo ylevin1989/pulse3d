@@ -41,7 +41,6 @@ export const AdminDashboard: React.FC = () => {
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       
-      // Construct a prompt optimized for "Industrial Premium" aesthetic
       const prompt = `Professional studio product photography of a 3D printed object: "${item.title}". 
       Material appearance: ${item.material}. Category: ${item.category || 'Industrial'}.
       Style: Industrial design, dark moody atmosphere, cinematic lighting with subtle gold rim light, high detail, 8k resolution, macro shot showing 3D printed layer texture.`;
@@ -68,7 +67,7 @@ export const AdminDashboard: React.FC = () => {
       }
     } catch (error) {
       console.error('AI Generation Error:', error);
-      alert('Ошибка при генерации. Проверьте консоль и API Key.');
+      alert('Ошибка при генерации. Проверьте консоль и API_KEY.');
     } finally {
       setGeneratingImages(prev => ({ ...prev, [index]: false }));
     }
